@@ -1,0 +1,29 @@
+{"node_type":"BASIC_BLOCK","code":"this := @this: ConstantPoolEntry","id":0,"type":"CFG_NODE"}
+{"node_type":"BASIC_BLOCK","code":"tagValue := @parameter0: int","id":1,"type":"CFG_NODE"}
+{"node_type":"BASIC_BLOCK","code":"entries := @parameter1: int","id":2,"type":"CFG_NODE"}
+{"node_type":"BASIC_BLOCK","code":"numEntries = 0","id":3,"type":"CFG_NODE"}
+{"node_type":"BASIC_BLOCK","code":"if entries <= 0 goto (branch)","id":4,"type":"CFG_NODE"}
+{"node_type":"BASIC_BLOCK","code":"numEntries = numEntries + entries","id":5,"type":"CFG_NODE"}
+{"node_type":"BASIC_BLOCK","code":"$i0 = (int) -1","id":6,"type":"CFG_NODE"}
+{"node_type":"BASIC_BLOCK","code":"entries = entries + $i0","id":7,"type":"CFG_NODE"}
+{"node_type":"BASIC_BLOCK","code":"goto [?= (branch)]","id":8,"type":"CFG_NODE"}
+{"node_type":"BASIC_BLOCK","code":"if numEntries >= tagValue goto $stack4 = 0","id":9,"type":"CFG_NODE"}
+{"node_type":"BASIC_BLOCK","code":"$stack4 = 1","id":10,"type":"CFG_NODE"}
+{"node_type":"BASIC_BLOCK","code":"goto [?= return $stack4]","id":11,"type":"CFG_NODE"}
+{"node_type":"BASIC_BLOCK","code":"$stack4 = 0","id":12,"type":"CFG_NODE"}
+{"node_type":"BASIC_BLOCK","code":"return $stack4","id":13,"type":"CFG_NODE"}
+{"source":0,"type":"CFG_EDGE","edge_type":"CONTROL_FLOW","target":1}
+{"source":1,"type":"CFG_EDGE","edge_type":"CONTROL_FLOW","target":2}
+{"source":2,"type":"CFG_EDGE","edge_type":"CONTROL_FLOW","target":3}
+{"source":3,"type":"CFG_EDGE","edge_type":"CONTROL_FLOW","target":4}
+{"source":4,"type":"CFG_EDGE","edge_type":"CONTROL_FLOW","target":5}
+{"source":4,"type":"CFG_EDGE","edge_type":"CONTROL_FLOW","target":9}
+{"source":5,"type":"CFG_EDGE","edge_type":"CONTROL_FLOW","target":6}
+{"source":6,"type":"CFG_EDGE","edge_type":"CONTROL_FLOW","target":7}
+{"source":7,"type":"CFG_EDGE","edge_type":"CONTROL_FLOW","target":8}
+{"source":8,"type":"CFG_EDGE","edge_type":"CONTROL_FLOW","target":4}
+{"source":9,"type":"CFG_EDGE","edge_type":"CONTROL_FLOW","target":10}
+{"source":9,"type":"CFG_EDGE","edge_type":"CONTROL_FLOW","target":12}
+{"source":10,"type":"CFG_EDGE","edge_type":"CONTROL_FLOW","target":11}
+{"source":11,"type":"CFG_EDGE","edge_type":"CONTROL_FLOW","target":13}
+{"source":12,"type":"CFG_EDGE","edge_type":"CONTROL_FLOW","target":13}

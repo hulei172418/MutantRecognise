@@ -1,0 +1,32 @@
+digraph "DFG_com.example.demo.ConstantPoolEntry.origin.ConstantPoolEntry_PoolEntry" {
+    label="Data Flow Graph for com.example.demo.ConstantPoolEntry.origin.ConstantPoolEntry.PoolEntry";
+    node [shape=box];
+    "0: this := @this: com.example.demo.ConstantPoolEntry.origin.ConstantPoolEntry" [label="0: this := @this: com.example.demo.ConstantPoolEntry.origin.ConstantPoolEntry",];
+    "1: tagValue := @parameter0: int" [label="1: tagValue := @parameter0: int",];
+    "2: entries := @parameter1: int" [label="2: entries := @parameter1: int",];
+    "3: numEntries = 0" [label="3: numEntries = 0",];
+    "4: if entries <= 0 goto (branch)" [label="4: if entries <= 0 goto (branch)",];
+    "5: numEntries = numEntries + entries" [label="5: numEntries = numEntries + entries",];
+    "6: $i0 = (int) -1" [label="6: $i0 = (int) -1",];
+    "7: entries = entries + $i0" [label="7: entries = entries + $i0",];
+    "8: goto [?= (branch)]" [label="8: goto [?= (branch)]",];
+    "9: if numEntries >= tagValue goto $stack4 = 0" [label="9: if numEntries >= tagValue goto $stack4 = 0",];
+    "10: $stack4 = 1" [label="10: $stack4 = 1",];
+    "11: goto [?= return $stack4]" [label="11: goto [?= return $stack4]",];
+    "12: $stack4 = 0" [label="12: $stack4 = 0",];
+    "13: return $stack4" [label="13: return $stack4",];
+    "2: entries := @parameter1: int"->"4: if entries <= 0 goto (branch)" [label="entries",];
+    "7: entries = entries + $i0"->"4: if entries <= 0 goto (branch)" [label="entries",];
+    "3: numEntries = 0"->"5: numEntries = numEntries + entries" [label="numEntries",];
+    "5: numEntries = numEntries + entries"->"5: numEntries = numEntries + entries" [label="numEntries",];
+    "2: entries := @parameter1: int"->"5: numEntries = numEntries + entries" [label="entries",];
+    "7: entries = entries + $i0"->"5: numEntries = numEntries + entries" [label="entries",];
+    "2: entries := @parameter1: int"->"7: entries = entries + $i0" [label="entries",];
+    "7: entries = entries + $i0"->"7: entries = entries + $i0" [label="entries",];
+    "6: $i0 = (int) -1"->"7: entries = entries + $i0" [label="$i0",];
+    "3: numEntries = 0"->"9: if numEntries >= tagValue goto $stack4 = 0" [label="numEntries",];
+    "5: numEntries = numEntries + entries"->"9: if numEntries >= tagValue goto $stack4 = 0" [label="numEntries",];
+    "1: tagValue := @parameter0: int"->"9: if numEntries >= tagValue goto $stack4 = 0" [label="tagValue",];
+    "12: $stack4 = 0"->"13: return $stack4" [label="$stack4",];
+    "10: $stack4 = 1"->"13: return $stack4" [label="$stack4",];
+}

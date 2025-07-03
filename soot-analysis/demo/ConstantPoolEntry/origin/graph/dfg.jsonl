@@ -1,0 +1,28 @@
+{"node_type":"UNIT","code":"this := @this: ConstantPoolEntry","id":0,"type":"DFG_NODE"}
+{"node_type":"UNIT","code":"tagValue := @parameter0: int","id":1,"type":"DFG_NODE"}
+{"node_type":"UNIT","code":"entries := @parameter1: int","id":2,"type":"DFG_NODE"}
+{"node_type":"UNIT","code":"numEntries = 0","id":3,"type":"DFG_NODE"}
+{"node_type":"UNIT","code":"if entries <= 0 goto (branch)","id":4,"type":"DFG_NODE"}
+{"node_type":"UNIT","code":"numEntries = numEntries + entries","id":5,"type":"DFG_NODE"}
+{"node_type":"UNIT","code":"$i0 = (int) -1","id":6,"type":"DFG_NODE"}
+{"node_type":"UNIT","code":"entries = entries + $i0","id":7,"type":"DFG_NODE"}
+{"node_type":"UNIT","code":"goto [?= (branch)]","id":8,"type":"DFG_NODE"}
+{"node_type":"UNIT","code":"if numEntries >= tagValue goto $stack4 = 0","id":9,"type":"DFG_NODE"}
+{"node_type":"UNIT","code":"$stack4 = 1","id":10,"type":"DFG_NODE"}
+{"node_type":"UNIT","code":"goto [?= return $stack4]","id":11,"type":"DFG_NODE"}
+{"node_type":"UNIT","code":"$stack4 = 0","id":12,"type":"DFG_NODE"}
+{"node_type":"UNIT","code":"return $stack4","id":13,"type":"DFG_NODE"}
+{"source":7,"type":"DFG_EDGE","edge_type":"DATA_FLOW","value":"entries","target":4}
+{"source":2,"type":"DFG_EDGE","edge_type":"DATA_FLOW","value":"entries","target":4}
+{"source":5,"type":"DFG_EDGE","edge_type":"DATA_FLOW","value":"numEntries","target":5}
+{"source":3,"type":"DFG_EDGE","edge_type":"DATA_FLOW","value":"numEntries","target":5}
+{"source":7,"type":"DFG_EDGE","edge_type":"DATA_FLOW","value":"entries","target":5}
+{"source":2,"type":"DFG_EDGE","edge_type":"DATA_FLOW","value":"entries","target":5}
+{"source":7,"type":"DFG_EDGE","edge_type":"DATA_FLOW","value":"entries","target":7}
+{"source":2,"type":"DFG_EDGE","edge_type":"DATA_FLOW","value":"entries","target":7}
+{"source":6,"type":"DFG_EDGE","edge_type":"DATA_FLOW","value":"$i0","target":7}
+{"source":5,"type":"DFG_EDGE","edge_type":"DATA_FLOW","value":"numEntries","target":9}
+{"source":3,"type":"DFG_EDGE","edge_type":"DATA_FLOW","value":"numEntries","target":9}
+{"source":1,"type":"DFG_EDGE","edge_type":"DATA_FLOW","value":"tagValue","target":9}
+{"source":10,"type":"DFG_EDGE","edge_type":"DATA_FLOW","value":"$stack4","target":13}
+{"source":12,"type":"DFG_EDGE","edge_type":"DATA_FLOW","value":"$stack4","target":13}

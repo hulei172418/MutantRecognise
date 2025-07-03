@@ -1,0 +1,59 @@
+{
+    "AssignStmt": {
+        "LeftOp": "numEntries",
+        "RightOp": "0"
+    },
+    "IfStmt": {
+        "Condition": {
+            "Operation": "<=",
+            "Left": "entries",
+            "Right": "0"
+        }
+    },
+    "AssignStmt": {
+        "LeftOp": "numEntries",
+        "RightOp": {
+            "Operation": "+",
+            "Left": "numEntries",
+            "Right": "entries"
+        }
+    },
+    "AssignStmt": {
+        "LeftOp": "$i0",
+        "RightOp": "(int) - 1"
+    },
+    "AssignStmt": {
+        "LeftOp": "entries",
+        "RightOp": {
+            "Operation": "+",
+            "Left": "entries",
+            "Right": "$i0"
+        }
+    },
+    "GotoStmt": "goto[ ?= (branch)]",
+    "AssignStmt": {
+        "LeftOp": "tagValue#4",
+        "RightOp": {
+            "Operation": "+",
+            "Left": "tagValue",
+            "Right": "1"
+        }
+    },
+    "IfStmt": {
+        "Condition": {
+            "Operation": ">=",
+            "Left": "numEntries",
+            "Right": "tagValue"
+        }
+    },
+    "AssignStmt": {
+        "LeftOp": "$stack4",
+        "RightOp": "1"
+    },
+    "GotoStmt": "goto[ ?= return $stack4]",
+    "AssignStmt": {
+        "LeftOp": "$stack4",
+        "RightOp": "0"
+    },
+    "ReturnStmt": "return $stack4",
+}

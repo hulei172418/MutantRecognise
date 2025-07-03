@@ -1,0 +1,38 @@
+    public boolean PoolEntry(int, int)
+    {
+        int tagValue, entries, numEntries, $i0;
+        ConstantPoolEntry this;
+        boolean $stack4;
+
+        this := @this: ConstantPoolEntry;
+
+        tagValue := @parameter0: int;
+
+        entries := @parameter1: int;
+
+        numEntries = 0;
+
+     label1:
+        if entries <= 0 goto label2;
+
+        numEntries = numEntries + entries;
+
+        $i0 = (int) -1;
+
+        entries = entries + $i0;
+
+        goto label1;
+
+     label2:
+        if numEntries >= tagValue goto label3;
+
+        $stack4 = 1;
+
+        goto label4;
+
+     label3:
+        $stack4 = 0;
+
+     label4:
+        return $stack4;
+    }

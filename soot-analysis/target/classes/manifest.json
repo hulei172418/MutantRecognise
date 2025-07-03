@@ -1,0 +1,19 @@
+{
+  "version": "1.0",
+  "created": "2024-02-21T09:00:00Z",
+  "java_version": "11",
+  "soot_version": "4.3.0",
+  "mutations": [
+    {
+      "id": "mutant_001",
+      "original_file": "src/main/java/com/example/demo/Triangle.java",
+      "mutated_file": "mutations/Example_mutant_001.java",
+      "mutation_type": "ArithmeticOperatorReplacement",
+      "graphs": {
+        "ast": "graphs/mutant_001_ast.jsonl",
+        "cfg": "graphs/mutant_001_cfg.jsonl",
+        "dfg": "graphs/mutant_001_dfg.jsonl"
+      }
+    }
+  ]
+}

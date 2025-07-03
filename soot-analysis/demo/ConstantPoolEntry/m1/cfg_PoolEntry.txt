@@ -1,0 +1,17 @@
+[start] -> [this := @this: com.example.demo.ConstantPoolEntry.m1.ConstantPoolEntry]
+[this := @this: com.example.demo.ConstantPoolEntry.m1.ConstantPoolEntry] -> [tagValue := @parameter0: int]
+[tagValue := @parameter0: int] -> [entries := @parameter1: int]
+[entries := @parameter1: int] -> [numEntries = 0]
+[numEntries = 0] -> [if entries <= 0 goto (branch)]
+[if entries <= 0 goto (branch)] -> [numEntries = numEntries + entries] (false)
+[if entries <= 0 goto (branch)] -> [if numEntries >= tagValue goto $stack5 = 0] (true)
+[numEntries = numEntries + entries] -> [$i0 = (int) -1]
+[$i0 = (int) -1] -> [entries = entries + $i0]
+[entries = entries + $i0] -> [goto [?= (branch)]]
+[goto [?= (branch)]] -> [if entries <= 0 goto (branch)] (goto)
+[if numEntries >= tagValue goto $stack5 = 0] -> [$stack5 = 1] (false)
+[if numEntries >= tagValue goto $stack5 = 0] -> [$stack5 = 0] (true)
+[$stack5 = 1] -> [goto [?= return $stack5]]
+[goto [?= return $stack5]] -> [return $stack5] (goto)
+[$stack5 = 0] -> [return $stack5]
+[return $stack5] -> [end]

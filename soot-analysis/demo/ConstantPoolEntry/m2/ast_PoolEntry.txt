@@ -1,0 +1,98 @@
+=== Abstract Syntax Tree for com.example.demo.ConstantPoolEntry.m2.ConstantPoolEntry.PoolEntry ===
+
+Statement 0:
+  JIdentityStmt: this := @this: com.example.demo.ConstantPoolEntry.m2.ConstantPoolEntry
+
+Statement 1:
+  JIdentityStmt: tagValue := @parameter0: int
+
+Statement 2:
+  JIdentityStmt: entries := @parameter1: int
+
+Statement 3:
+  AssignStmt:
+    LeftOp:
+      Local: numEntries
+    RightOp:
+      Constant: 0
+
+Statement 4:
+  IfStmt:
+    Condition:
+       <=  Operation:
+        Left:
+          Local: entries
+        Right:
+          Constant: 0
+
+Statement 5:
+  AssignStmt:
+    LeftOp:
+      Local: numEntries
+    RightOp:
+       +  Operation:
+        Left:
+          Local: numEntries
+        Right:
+          Local: entries
+
+Statement 6:
+  AssignStmt:
+    LeftOp:
+      Local: $i0
+    RightOp:
+      JCastExpr: (int) -1
+
+Statement 7:
+  AssignStmt:
+    LeftOp:
+      Local: entries
+    RightOp:
+       +  Operation:
+        Left:
+          Local: entries
+        Right:
+          Local: $i0
+
+Statement 8:
+  JGotoStmt: goto [?= (branch)]
+
+Statement 9:
+  AssignStmt:
+    LeftOp:
+      Local: tagValue#4
+    RightOp:
+       +  Operation:
+        Left:
+          Local: tagValue
+        Right:
+          Constant: 1
+
+Statement 10:
+  IfStmt:
+    Condition:
+       >=  Operation:
+        Left:
+          Local: numEntries
+        Right:
+          Local: tagValue#4
+
+Statement 11:
+  AssignStmt:
+    LeftOp:
+      Local: $stack4
+    RightOp:
+      Constant: 1
+
+Statement 12:
+  JGotoStmt: goto [?= return $stack4]
+
+Statement 13:
+  AssignStmt:
+    LeftOp:
+      Local: $stack4
+    RightOp:
+      Constant: 0
+
+Statement 14:
+  JReturnStmt: return $stack4

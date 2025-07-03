@@ -1,0 +1,33 @@
+digraph "CFG_com.example.demo.ConstantPoolEntry.m2.ConstantPoolEntry_PoolEntry" {
+    "this := @this: com.example.demo.ConstantPoolEntry.m2.ConstantPoolEntry";
+    "tagValue := @parameter0: int";
+    "entries := @parameter1: int";
+    "numEntries = 0";
+    "if entries <= 0 goto tagValue#4 = tagValue + 1";
+    "numEntries = numEntries + entries";
+    "$i0 = (int) -1";
+    "entries = entries + $i0";
+    "goto [?= (branch)]";
+    "tagValue#4 = tagValue + 1";
+    "if numEntries >= tagValue#4 goto $stack4 = 0";
+    "$stack4 = 1";
+    "goto [?= return $stack4]";
+    "$stack4 = 0";
+    "return $stack4";
+    "this := @this: com.example.demo.ConstantPoolEntry.m2.ConstantPoolEntry"->"tagValue := @parameter0: int" [label="",];
+    "tagValue := @parameter0: int"->"entries := @parameter1: int" [label="",];
+    "entries := @parameter1: int"->"numEntries = 0" [label="",];
+    "numEntries = 0"->"if entries <= 0 goto tagValue#4 = tagValue + 1" [label="",];
+    "if entries <= 0 goto tagValue#4 = tagValue + 1"->"numEntries = numEntries + entries" [label="false",];
+    "if entries <= 0 goto tagValue#4 = tagValue + 1"->"tagValue#4 = tagValue + 1" [label="true",];
+    "numEntries = numEntries + entries"->"$i0 = (int) -1" [label="",];
+    "$i0 = (int) -1"->"entries = entries + $i0" [label="",];
+    "entries = entries + $i0"->"goto [?= (branch)]" [label="",];
+    "goto [?= (branch)]"->"if entries <= 0 goto tagValue#4 = tagValue + 1" [label="",];
+    "tagValue#4 = tagValue + 1"->"if numEntries >= tagValue#4 goto $stack4 = 0" [label="",];
+    "if numEntries >= tagValue#4 goto $stack4 = 0"->"$stack4 = 1" [label="false",];
+    "if numEntries >= tagValue#4 goto $stack4 = 0"->"$stack4 = 0" [label="true",];
+    "$stack4 = 1"->"goto [?= return $stack4]" [label="",];
+    "goto [?= return $stack4]"->"return $stack4" [label="",];
+    "$stack4 = 0"->"return $stack4" [label="",];
+}

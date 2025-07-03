@@ -1,0 +1,1 @@
+{"graph_types":["AST","CFG","DFG"],"method_name":"boolean_PoolEntry","mutationStatement":" Arch.BIT_32 == arch  =>   Arch.BIT_32 != arch","class_name":"ConstantPoolEntry","timestamp":1750898254937}

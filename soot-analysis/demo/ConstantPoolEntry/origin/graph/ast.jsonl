@@ -1,0 +1,61 @@
+{"node_type":"JIdentityStmt","code":"this := @this: ConstantPoolEntry","id":0,"type":"AST_NODE"}
+{"node_type":"JimpleLocal","code":"this","id":1,"type":"AST_NODE"}
+{"source":0,"type":"AST_EDGE","edge_type":"PARENT_OF","target":1}
+{"node_type":"ThisRef","code":"@this: ConstantPoolEntry","id":2,"type":"AST_NODE"}
+{"source":0,"type":"AST_EDGE","edge_type":"PARENT_OF","target":2}
+{"node_type":"JIdentityStmt","code":"tagValue := @parameter0: int","id":3,"type":"AST_NODE"}
+{"node_type":"JimpleLocal","code":"tagValue","id":4,"type":"AST_NODE"}
+{"source":3,"type":"AST_EDGE","edge_type":"PARENT_OF","target":4}
+{"node_type":"ParameterRef","code":"@parameter0: int","id":5,"type":"AST_NODE"}
+{"source":3,"type":"AST_EDGE","edge_type":"PARENT_OF","target":5}
+{"node_type":"JIdentityStmt","code":"entries := @parameter1: int","id":6,"type":"AST_NODE"}
+{"node_type":"JimpleLocal","code":"entries","id":7,"type":"AST_NODE"}
+{"source":6,"type":"AST_EDGE","edge_type":"PARENT_OF","target":7}
+{"node_type":"ParameterRef","code":"@parameter1: int","id":8,"type":"AST_NODE"}
+{"source":6,"type":"AST_EDGE","edge_type":"PARENT_OF","target":8}
+{"node_type":"JAssignStmt","code":"numEntries = 0","id":9,"type":"AST_NODE"}
+{"node_type":"JimpleLocal","code":"numEntries","id":10,"type":"AST_NODE"}
+{"source":9,"type":"AST_EDGE","edge_type":"PARENT_OF","target":10}
+{"node_type":"IntConstant","code":"0","id":11,"type":"AST_NODE"}
+{"source":9,"type":"AST_EDGE","edge_type":"PARENT_OF","target":11}
+{"node_type":"JIfStmt","code":"if entries <= 0 goto (branch)","id":12,"type":"AST_NODE"}
+{"source":12,"type":"AST_EDGE","edge_type":"PARENT_OF","target":7}
+{"source":12,"type":"AST_EDGE","edge_type":"PARENT_OF","target":11}
+{"node_type":"JLeExpr","code":"entries <= 0","id":13,"type":"AST_NODE"}
+{"source":12,"type":"AST_EDGE","edge_type":"PARENT_OF","target":13}
+{"node_type":"JAssignStmt","code":"numEntries = numEntries + entries","id":14,"type":"AST_NODE"}
+{"source":14,"type":"AST_EDGE","edge_type":"PARENT_OF","target":10}
+{"node_type":"JAddExpr","code":"numEntries + entries","id":15,"type":"AST_NODE"}
+{"source":14,"type":"AST_EDGE","edge_type":"PARENT_OF","target":15}
+{"source":14,"type":"AST_EDGE","edge_type":"PARENT_OF","target":10}
+{"source":14,"type":"AST_EDGE","edge_type":"PARENT_OF","target":7}
+{"node_type":"JAssignStmt","code":"$i0 = (int) -1","id":16,"type":"AST_NODE"}
+{"node_type":"JimpleLocal","code":"$i0","id":17,"type":"AST_NODE"}
+{"source":16,"type":"AST_EDGE","edge_type":"PARENT_OF","target":17}
+{"node_type":"JCastExpr","code":"(int) -1","id":18,"type":"AST_NODE"}
+{"source":16,"type":"AST_EDGE","edge_type":"PARENT_OF","target":18}
+{"node_type":"IntConstant","code":"-1","id":19,"type":"AST_NODE"}
+{"source":16,"type":"AST_EDGE","edge_type":"PARENT_OF","target":19}
+{"node_type":"JAssignStmt","code":"entries = entries + $i0","id":20,"type":"AST_NODE"}
+{"source":20,"type":"AST_EDGE","edge_type":"PARENT_OF","target":7}
+{"node_type":"JAddExpr","code":"entries + $i0","id":21,"type":"AST_NODE"}
+{"source":20,"type":"AST_EDGE","edge_type":"PARENT_OF","target":21}
+{"source":20,"type":"AST_EDGE","edge_type":"PARENT_OF","target":7}
+{"source":20,"type":"AST_EDGE","edge_type":"PARENT_OF","target":17}
+{"node_type":"JGotoStmt","code":"goto [?= (branch)]","id":22,"type":"AST_NODE"}
+{"node_type":"JIfStmt","code":"if numEntries >= tagValue goto $stack4 = 0","id":23,"type":"AST_NODE"}
+{"source":23,"type":"AST_EDGE","edge_type":"PARENT_OF","target":10}
+{"source":23,"type":"AST_EDGE","edge_type":"PARENT_OF","target":4}
+{"node_type":"JGeExpr","code":"numEntries >= tagValue","id":24,"type":"AST_NODE"}
+{"source":23,"type":"AST_EDGE","edge_type":"PARENT_OF","target":24}
+{"node_type":"JAssignStmt","code":"$stack4 = 1","id":25,"type":"AST_NODE"}
+{"node_type":"JimpleLocal","code":"$stack4","id":26,"type":"AST_NODE"}
+{"source":25,"type":"AST_EDGE","edge_type":"PARENT_OF","target":26}
+{"node_type":"IntConstant","code":"1","id":27,"type":"AST_NODE"}
+{"source":25,"type":"AST_EDGE","edge_type":"PARENT_OF","target":27}
+{"node_type":"JGotoStmt","code":"goto [?= return $stack4]","id":28,"type":"AST_NODE"}
+{"node_type":"JAssignStmt","code":"$stack4 = 0","id":29,"type":"AST_NODE"}
+{"source":29,"type":"AST_EDGE","edge_type":"PARENT_OF","target":26}
+{"source":29,"type":"AST_EDGE","edge_type":"PARENT_OF","target":11}
+{"node_type":"JReturnStmt","code":"return $stack4","id":30,"type":"AST_NODE"}
+{"source":30,"type":"AST_EDGE","edge_type":"PARENT_OF","target":26}

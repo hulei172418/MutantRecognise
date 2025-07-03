@@ -1,0 +1,51 @@
+=== Data Dependencies ===
+
+Statement 0: this := @this: com.example.demo.ConstantPoolEntry.origin.ConstantPoolEntry
+
+Statement 1: tagValue := @parameter0: int
+
+Statement 2: entries := @parameter1: int
+
+Statement 3: numEntries = 0
+
+Statement 4: if entries <= 0 goto (branch)
+  Uses: entries
+    Defined at: 2: entries := @parameter1: int
+    Defined at: 7: entries = entries + $i0
+
+Statement 5: numEntries = numEntries + entries
+  Uses: numEntries
+    Defined at: 3: numEntries = 0
+    Defined at: 5: numEntries = numEntries + entries
+  Uses: entries
+    Defined at: 2: entries := @parameter1: int
+    Defined at: 7: entries = entries + $i0
+
+Statement 6: $i0 = (int) -1
+
+Statement 7: entries = entries + $i0
+  Uses: entries
+    Defined at: 2: entries := @parameter1: int
+    Defined at: 7: entries = entries + $i0
+  Uses: $i0
+    Defined at: 6: $i0 = (int) -1
+
+Statement 8: goto [?= (branch)]
+
+Statement 9: if numEntries >= tagValue goto $stack4 = 0
+  Uses: numEntries
+    Defined at: 3: numEntries = 0
+    Defined at: 5: numEntries = numEntries + entries
+  Uses: tagValue
+    Defined at: 1: tagValue := @parameter0: int
+
+Statement 10: $stack4 = 1
+
+Statement 11: goto [?= return $stack4]
+
+Statement 12: $stack4 = 0
+
+Statement 13: return $stack4
+  Uses: $stack4
+    Defined at: 12: $stack4 = 0
+    Defined at: 10: $stack4 = 1
