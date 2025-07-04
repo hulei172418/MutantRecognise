@@ -1,0 +1,10 @@
+{"node_type":"BASIC_BLOCK","code":"a := @parameter0: int[]","id":0,"type":"CFG_NODE"}
+{"node_type":"BASIC_BLOCK","code":"val := @parameter1: int","id":1,"type":"CFG_NODE"}
+{"node_type":"BASIC_BLOCK","code":"if a == null goto return a","id":2,"type":"CFG_NODE"}
+{"node_type":"BASIC_BLOCK","code":"staticinvoke <java.util.Arrays: void fill(int[],int)>(a, val)","id":3,"type":"CFG_NODE"}
+{"node_type":"BASIC_BLOCK","code":"return a","id":4,"type":"CFG_NODE"}
+{"source":0,"type":"CFG_EDGE","edge_type":"CONTROL_FLOW","target":1}
+{"source":1,"type":"CFG_EDGE","edge_type":"CONTROL_FLOW","target":2}
+{"source":2,"type":"CFG_EDGE","edge_type":"CONTROL_FLOW","target":3}
+{"source":2,"type":"CFG_EDGE","edge_type":"CONTROL_FLOW","target":4}
+{"source":3,"type":"CFG_EDGE","edge_type":"CONTROL_FLOW","target":4}

@@ -1,0 +1,13 @@
+    public static int[] fill(int[], int)
+    {
+        int l1;
+        int[] l0;
+
+        l0 := @parameter0: int[];
+
+        l1 := @parameter1: int;
+
+        staticinvoke <java.util.Arrays: void fill(int[],int)>(l0, l1);
+
+        return l0;
+    }

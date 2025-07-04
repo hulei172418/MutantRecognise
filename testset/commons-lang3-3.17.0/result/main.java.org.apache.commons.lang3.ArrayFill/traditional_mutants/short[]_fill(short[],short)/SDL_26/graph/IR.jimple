@@ -1,0 +1,13 @@
+    public static short[] fill(short[], short)
+    {
+        short l1;
+        short[] l0;
+
+        l0 := @parameter0: short[];
+
+        l1 := @parameter1: short;
+
+        staticinvoke <java.util.Arrays: void fill(short[],short)>(l0, l1);
+
+        return l0;
+    }

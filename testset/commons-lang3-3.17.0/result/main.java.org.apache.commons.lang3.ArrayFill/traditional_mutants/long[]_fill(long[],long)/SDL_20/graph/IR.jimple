@@ -1,0 +1,11 @@
+    public static long[] fill(long[], long)
+    {
+        long l1;
+        long[] l0;
+
+        l0 := @parameter0: long[];
+
+        l1 := @parameter1: long;
+
+        return l0;
+    }

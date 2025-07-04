@@ -1,0 +1,11 @@
+    public static char[] fill(char[], char)
+    {
+        char[] l0;
+        char l1;
+
+        l0 := @parameter0: char[];
+
+        l1 := @parameter1: char;
+
+        return l0;
+    }

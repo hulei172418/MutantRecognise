@@ -1,0 +1,7 @@
+{"node_type":"BASIC_BLOCK","code":"l0 := @parameter0: int[]","id":0,"type":"CFG_NODE"}
+{"node_type":"BASIC_BLOCK","code":"l1 := @parameter1: int","id":1,"type":"CFG_NODE"}
+{"node_type":"BASIC_BLOCK","code":"if l0 == null goto return l0","id":2,"type":"CFG_NODE"}
+{"node_type":"BASIC_BLOCK","code":"return l0","id":3,"type":"CFG_NODE"}
+{"source":0,"type":"CFG_EDGE","edge_type":"CONTROL_FLOW","target":1}
+{"source":1,"type":"CFG_EDGE","edge_type":"CONTROL_FLOW","target":2}
+{"source":2,"type":"CFG_EDGE","edge_type":"CONTROL_FLOW","target":3}

@@ -1,0 +1,37 @@
+{"node_type":"JIdentityStmt","code":"l0 := @parameter0: int[]","id":0,"type":"AST_NODE"}
+{"node_type":"JimpleLocal","code":"l0","id":1,"type":"AST_NODE"}
+{"source":0,"type":"AST_EDGE","edge_type":"PARENT_OF","target":1}
+{"node_type":"ParameterRef","code":"@parameter0: int[]","id":2,"type":"AST_NODE"}
+{"source":0,"type":"AST_EDGE","edge_type":"PARENT_OF","target":2}
+{"node_type":"JIdentityStmt","code":"l1 := @parameter1: int","id":3,"type":"AST_NODE"}
+{"node_type":"JimpleLocal","code":"l1","id":4,"type":"AST_NODE"}
+{"source":3,"type":"AST_EDGE","edge_type":"PARENT_OF","target":4}
+{"node_type":"ParameterRef","code":"@parameter1: int","id":5,"type":"AST_NODE"}
+{"source":3,"type":"AST_EDGE","edge_type":"PARENT_OF","target":5}
+{"node_type":"JIfStmt","code":"if l0 == null goto return l0","id":6,"type":"AST_NODE"}
+{"source":6,"type":"AST_EDGE","edge_type":"PARENT_OF","target":1}
+{"node_type":"NullConstant","code":"null","id":7,"type":"AST_NODE"}
+{"source":6,"type":"AST_EDGE","edge_type":"PARENT_OF","target":7}
+{"node_type":"JEqExpr","code":"l0 == null","id":8,"type":"AST_NODE"}
+{"source":6,"type":"AST_EDGE","edge_type":"PARENT_OF","target":8}
+{"node_type":"JAssignStmt","code":"$i0 = (int) -1","id":9,"type":"AST_NODE"}
+{"node_type":"JimpleLocal","code":"$i0","id":10,"type":"AST_NODE"}
+{"source":9,"type":"AST_EDGE","edge_type":"PARENT_OF","target":10}
+{"node_type":"JCastExpr","code":"(int) -1","id":11,"type":"AST_NODE"}
+{"source":9,"type":"AST_EDGE","edge_type":"PARENT_OF","target":11}
+{"node_type":"IntConstant","code":"-1","id":12,"type":"AST_NODE"}
+{"source":9,"type":"AST_EDGE","edge_type":"PARENT_OF","target":12}
+{"node_type":"JAssignStmt","code":"$stack2 = l1 ^ $i0","id":13,"type":"AST_NODE"}
+{"node_type":"JimpleLocal","code":"$stack2","id":14,"type":"AST_NODE"}
+{"source":13,"type":"AST_EDGE","edge_type":"PARENT_OF","target":14}
+{"node_type":"JXorExpr","code":"l1 ^ $i0","id":15,"type":"AST_NODE"}
+{"source":13,"type":"AST_EDGE","edge_type":"PARENT_OF","target":15}
+{"source":13,"type":"AST_EDGE","edge_type":"PARENT_OF","target":4}
+{"source":13,"type":"AST_EDGE","edge_type":"PARENT_OF","target":10}
+{"node_type":"JInvokeStmt","code":"staticinvoke <java.util.Arrays: void fill(int[],int)>(l0, $stack2)","id":16,"type":"AST_NODE"}
+{"source":16,"type":"AST_EDGE","edge_type":"PARENT_OF","target":1}
+{"source":16,"type":"AST_EDGE","edge_type":"PARENT_OF","target":14}
+{"node_type":"JStaticInvokeExpr","code":"staticinvoke <java.util.Arrays: void fill(int[],int)>(l0, $stack2)","id":17,"type":"AST_NODE"}
+{"source":16,"type":"AST_EDGE","edge_type":"PARENT_OF","target":17}
+{"node_type":"JReturnStmt","code":"return l0","id":18,"type":"AST_NODE"}
+{"source":18,"type":"AST_EDGE","edge_type":"PARENT_OF","target":1}

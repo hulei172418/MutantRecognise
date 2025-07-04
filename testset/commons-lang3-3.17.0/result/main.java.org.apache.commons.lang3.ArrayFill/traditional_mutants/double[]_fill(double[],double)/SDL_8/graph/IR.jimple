@@ -1,0 +1,11 @@
+    public static double[] fill(double[], double)
+    {
+        double[] l0;
+        double l1;
+
+        l0 := @parameter0: double[];
+
+        l1 := @parameter1: double;
+
+        return l0;
+    }

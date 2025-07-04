@@ -1,0 +1,16 @@
+    public static short[] fill(short[], short)
+    {
+        short val;
+        short[] a;
+
+        a := @parameter0: short[];
+
+        val := @parameter1: short;
+
+        if a == null goto label1;
+
+        staticinvoke <java.util.Arrays: void fill(short[],short)>(a, val);
+
+     label1:
+        return a;
+    }

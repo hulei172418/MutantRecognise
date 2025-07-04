@@ -1,0 +1,29 @@
+{"node_type":"JIdentityStmt","code":"l0 := @parameter0: float[]","id":0,"type":"AST_NODE"}
+{"node_type":"JimpleLocal","code":"l0","id":1,"type":"AST_NODE"}
+{"source":0,"type":"AST_EDGE","edge_type":"PARENT_OF","target":1}
+{"node_type":"ParameterRef","code":"@parameter0: float[]","id":2,"type":"AST_NODE"}
+{"source":0,"type":"AST_EDGE","edge_type":"PARENT_OF","target":2}
+{"node_type":"JIdentityStmt","code":"l1 := @parameter1: float","id":3,"type":"AST_NODE"}
+{"node_type":"JimpleLocal","code":"l1","id":4,"type":"AST_NODE"}
+{"source":3,"type":"AST_EDGE","edge_type":"PARENT_OF","target":4}
+{"node_type":"ParameterRef","code":"@parameter1: float","id":5,"type":"AST_NODE"}
+{"source":3,"type":"AST_EDGE","edge_type":"PARENT_OF","target":5}
+{"node_type":"JIfStmt","code":"if l0 == null goto return l0","id":6,"type":"AST_NODE"}
+{"source":6,"type":"AST_EDGE","edge_type":"PARENT_OF","target":1}
+{"node_type":"NullConstant","code":"null","id":7,"type":"AST_NODE"}
+{"source":6,"type":"AST_EDGE","edge_type":"PARENT_OF","target":7}
+{"node_type":"JEqExpr","code":"l0 == null","id":8,"type":"AST_NODE"}
+{"source":6,"type":"AST_EDGE","edge_type":"PARENT_OF","target":8}
+{"node_type":"JAssignStmt","code":"$stack2 = neg l1","id":9,"type":"AST_NODE"}
+{"node_type":"JimpleLocal","code":"$stack2","id":10,"type":"AST_NODE"}
+{"source":9,"type":"AST_EDGE","edge_type":"PARENT_OF","target":10}
+{"node_type":"JNegExpr","code":"neg l1","id":11,"type":"AST_NODE"}
+{"source":9,"type":"AST_EDGE","edge_type":"PARENT_OF","target":11}
+{"source":9,"type":"AST_EDGE","edge_type":"PARENT_OF","target":4}
+{"node_type":"JInvokeStmt","code":"staticinvoke <java.util.Arrays: void fill(float[],float)>(l0, $stack2)","id":12,"type":"AST_NODE"}
+{"source":12,"type":"AST_EDGE","edge_type":"PARENT_OF","target":1}
+{"source":12,"type":"AST_EDGE","edge_type":"PARENT_OF","target":10}
+{"node_type":"JStaticInvokeExpr","code":"staticinvoke <java.util.Arrays: void fill(float[],float)>(l0, $stack2)","id":13,"type":"AST_NODE"}
+{"source":12,"type":"AST_EDGE","edge_type":"PARENT_OF","target":13}
+{"node_type":"JReturnStmt","code":"return l0","id":14,"type":"AST_NODE"}
+{"source":14,"type":"AST_EDGE","edge_type":"PARENT_OF","target":1}

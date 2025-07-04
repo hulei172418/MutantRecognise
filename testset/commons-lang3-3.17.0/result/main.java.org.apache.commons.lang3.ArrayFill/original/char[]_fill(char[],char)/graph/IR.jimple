@@ -1,0 +1,16 @@
+    public static char[] fill(char[], char)
+    {
+        char[] a;
+        char val;
+
+        a := @parameter0: char[];
+
+        val := @parameter1: char;
+
+        if a == null goto label1;
+
+        staticinvoke <java.util.Arrays: void fill(char[],char)>(a, val);
+
+     label1:
+        return a;
+    }

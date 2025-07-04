@@ -1,0 +1,11 @@
+    public static byte[] fill(byte[], byte)
+    {
+        byte[] l0;
+        byte l1;
+
+        l0 := @parameter0: byte[];
+
+        l1 := @parameter1: byte;
+
+        return l0;
+    }

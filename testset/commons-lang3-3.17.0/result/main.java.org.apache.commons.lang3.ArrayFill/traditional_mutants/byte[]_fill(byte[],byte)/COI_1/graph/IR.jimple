@@ -1,0 +1,16 @@
+    public static byte[] fill(byte[], byte)
+    {
+        byte[] l0;
+        byte l1;
+
+        l0 := @parameter0: byte[];
+
+        l1 := @parameter1: byte;
+
+        if l0 != null goto label1;
+
+        staticinvoke <java.util.Arrays: void fill(byte[],byte)>(l0, l1);
+
+     label1:
+        return l0;
+    }

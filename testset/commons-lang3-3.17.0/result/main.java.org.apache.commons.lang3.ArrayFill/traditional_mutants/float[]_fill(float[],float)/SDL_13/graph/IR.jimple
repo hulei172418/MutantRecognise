@@ -1,0 +1,14 @@
+    public static float[] fill(float[], float)
+    {
+        float l1;
+        float[] l0;
+
+        l0 := @parameter0: float[];
+
+        l1 := @parameter1: float;
+
+        if l0 == null goto label1;
+
+     label1:
+        return l0;
+    }

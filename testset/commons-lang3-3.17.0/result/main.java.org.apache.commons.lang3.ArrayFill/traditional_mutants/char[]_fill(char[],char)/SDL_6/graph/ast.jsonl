@@ -1,0 +1,17 @@
+{"node_type":"JIdentityStmt","code":"l0 := @parameter0: char[]","id":0,"type":"AST_NODE"}
+{"node_type":"JimpleLocal","code":"l0","id":1,"type":"AST_NODE"}
+{"source":0,"type":"AST_EDGE","edge_type":"PARENT_OF","target":1}
+{"node_type":"ParameterRef","code":"@parameter0: char[]","id":2,"type":"AST_NODE"}
+{"source":0,"type":"AST_EDGE","edge_type":"PARENT_OF","target":2}
+{"node_type":"JIdentityStmt","code":"l1 := @parameter1: char","id":3,"type":"AST_NODE"}
+{"node_type":"JimpleLocal","code":"l1","id":4,"type":"AST_NODE"}
+{"source":3,"type":"AST_EDGE","edge_type":"PARENT_OF","target":4}
+{"node_type":"ParameterRef","code":"@parameter1: char","id":5,"type":"AST_NODE"}
+{"source":3,"type":"AST_EDGE","edge_type":"PARENT_OF","target":5}
+{"node_type":"JInvokeStmt","code":"staticinvoke <java.util.Arrays: void fill(char[],char)>(l0, l1)","id":6,"type":"AST_NODE"}
+{"source":6,"type":"AST_EDGE","edge_type":"PARENT_OF","target":1}
+{"source":6,"type":"AST_EDGE","edge_type":"PARENT_OF","target":4}
+{"node_type":"JStaticInvokeExpr","code":"staticinvoke <java.util.Arrays: void fill(char[],char)>(l0, l1)","id":7,"type":"AST_NODE"}
+{"source":6,"type":"AST_EDGE","edge_type":"PARENT_OF","target":7}
+{"node_type":"JReturnStmt","code":"return l0","id":8,"type":"AST_NODE"}
+{"source":8,"type":"AST_EDGE","edge_type":"PARENT_OF","target":1}

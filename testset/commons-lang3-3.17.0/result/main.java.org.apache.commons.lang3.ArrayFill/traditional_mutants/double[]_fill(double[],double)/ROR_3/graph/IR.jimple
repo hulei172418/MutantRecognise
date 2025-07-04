@@ -1,0 +1,16 @@
+    public static double[] fill(double[], double)
+    {
+        double[] l0;
+        double l1;
+
+        l0 := @parameter0: double[];
+
+        l1 := @parameter1: double;
+
+        if l0 != null goto label1;
+
+        staticinvoke <java.util.Arrays: void fill(double[],double)>(l0, l1);
+
+     label1:
+        return l0;
+    }

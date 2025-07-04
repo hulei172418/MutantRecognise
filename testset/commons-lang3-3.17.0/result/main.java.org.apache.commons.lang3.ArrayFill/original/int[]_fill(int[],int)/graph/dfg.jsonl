@@ -1,0 +1,9 @@
+{"node_type":"UNIT","code":"a := @parameter0: int[]","id":0,"type":"DFG_NODE"}
+{"node_type":"UNIT","code":"val := @parameter1: int","id":1,"type":"DFG_NODE"}
+{"node_type":"UNIT","code":"if a == null goto return a","id":2,"type":"DFG_NODE"}
+{"node_type":"UNIT","code":"staticinvoke <java.util.Arrays: void fill(int[],int)>(a, val)","id":3,"type":"DFG_NODE"}
+{"node_type":"UNIT","code":"return a","id":4,"type":"DFG_NODE"}
+{"source":0,"type":"DFG_EDGE","edge_type":"DATA_FLOW","value":"a","target":2}
+{"source":0,"type":"DFG_EDGE","edge_type":"DATA_FLOW","value":"a","target":3}
+{"source":1,"type":"DFG_EDGE","edge_type":"DATA_FLOW","value":"val","target":3}
+{"source":0,"type":"DFG_EDGE","edge_type":"DATA_FLOW","value":"a","target":4}

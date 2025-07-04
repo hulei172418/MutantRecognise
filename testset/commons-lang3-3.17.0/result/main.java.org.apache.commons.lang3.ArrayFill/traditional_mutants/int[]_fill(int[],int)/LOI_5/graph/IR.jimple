@@ -1,0 +1,20 @@
+    public static int[] fill(int[], int)
+    {
+        int[] l0;
+        int l1, $stack2, $i0;
+
+        l0 := @parameter0: int[];
+
+        l1 := @parameter1: int;
+
+        if l0 == null goto label1;
+
+        $i0 = (int) -1;
+
+        $stack2 = l1 ^ $i0;
+
+        staticinvoke <java.util.Arrays: void fill(int[],int)>(l0, $stack2);
+
+     label1:
+        return l0;
+    }

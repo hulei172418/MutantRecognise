@@ -1,0 +1,18 @@
+    public static long[] fill(long[], long)
+    {
+        long l1, $stack3;
+        long[] l0;
+
+        l0 := @parameter0: long[];
+
+        l1 := @parameter1: long;
+
+        if l0 == null goto label1;
+
+        $stack3 = neg l1;
+
+        staticinvoke <java.util.Arrays: void fill(long[],long)>(l0, $stack3);
+
+     label1:
+        return l0;
+    }

@@ -1,0 +1,16 @@
+    public static float[] fill(float[], float)
+    {
+        float val;
+        float[] a;
+
+        a := @parameter0: float[];
+
+        val := @parameter1: float;
+
+        if a == null goto label1;
+
+        staticinvoke <java.util.Arrays: void fill(float[],float)>(a, val);
+
+     label1:
+        return a;
+    }

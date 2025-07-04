@@ -1,0 +1,16 @@
+    public static int[] fill(int[], int)
+    {
+        int val;
+        int[] a;
+
+        a := @parameter0: int[];
+
+        val := @parameter1: int;
+
+        if a == null goto label1;
+
+        staticinvoke <java.util.Arrays: void fill(int[],int)>(a, val);
+
+     label1:
+        return a;
+    }

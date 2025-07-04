@@ -1,0 +1,11 @@
+    public static short[] fill(short[], short)
+    {
+        short l1;
+        short[] l0;
+
+        l0 := @parameter0: short[];
+
+        l1 := @parameter1: short;
+
+        return l0;
+    }

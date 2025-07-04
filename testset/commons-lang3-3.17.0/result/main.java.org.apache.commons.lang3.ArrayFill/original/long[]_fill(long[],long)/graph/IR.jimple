@@ -1,0 +1,16 @@
+    public static long[] fill(long[], long)
+    {
+        long val;
+        long[] a;
+
+        a := @parameter0: long[];
+
+        val := @parameter1: long;
+
+        if a == null goto label1;
+
+        staticinvoke <java.util.Arrays: void fill(long[],long)>(a, val);
+
+     label1:
+        return a;
+    }

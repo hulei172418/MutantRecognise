@@ -1,0 +1,14 @@
+    public static char[] fill(char[], char)
+    {
+        char[] l0;
+        char l1;
+
+        l0 := @parameter0: char[];
+
+        l1 := @parameter1: char;
+
+        if l0 == null goto label1;
+
+     label1:
+        return l0;
+    }

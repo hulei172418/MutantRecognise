@@ -1,0 +1,11 @@
+{"node_type":"UNIT","code":"l0 := @parameter0: long[]","id":0,"type":"DFG_NODE"}
+{"node_type":"UNIT","code":"l1 := @parameter1: long","id":1,"type":"DFG_NODE"}
+{"node_type":"UNIT","code":"if l0 == null goto return l0","id":2,"type":"DFG_NODE"}
+{"node_type":"UNIT","code":"$stack3 = l1 ^ -1L","id":3,"type":"DFG_NODE"}
+{"node_type":"UNIT","code":"staticinvoke <java.util.Arrays: void fill(long[],long)>(l0, $stack3)","id":4,"type":"DFG_NODE"}
+{"node_type":"UNIT","code":"return l0","id":5,"type":"DFG_NODE"}
+{"source":0,"type":"DFG_EDGE","edge_type":"DATA_FLOW","value":"l0","target":2}
+{"source":1,"type":"DFG_EDGE","edge_type":"DATA_FLOW","value":"l1","target":3}
+{"source":0,"type":"DFG_EDGE","edge_type":"DATA_FLOW","value":"l0","target":4}
+{"source":3,"type":"DFG_EDGE","edge_type":"DATA_FLOW","value":"$stack3","target":4}
+{"source":0,"type":"DFG_EDGE","edge_type":"DATA_FLOW","value":"l0","target":5}
