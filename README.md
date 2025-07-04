@@ -1,48 +1,45 @@
-# GBSR: Graph-Based Suspiciousness Refinement of Fault Localization
+# Equivalent Mutant Detection Based on Siamese Graph Neural Networks
 
-## Project Introduction:
+## 项目简介
 
-GBSR is a strategy for refining the suspiciousness scores in fault localization. This method aims to assist developers in more accurately pinpointing and rectifying defects within code. By leveraging graph structures and associated algorithms, GBSR offers an enhanced measure of suspicion for potential fault locations.
+SGENT 是一种用于优化故障定位中可疑度评分的策略。该方法方便开发者更精确地定位并修复代码中的缺陷。通过引入图结构及相关算法，SGENT 能够为潜在故障位置提供更精确的可疑度评估。
 
-## Provided Resources:
+## 提供的资源
 
-Within this open-source project, we offer essential resources for experimentation:
+在本开源项目中，我们提供了用于实验的核心资源：
 
+* **Data 文件夹**：包含进行实验所需的数据文件。
+* **Code 文件夹**：实现 SGENT 策略的源代码。
+* **Example 文件夹**：通过 Lang1 项目和 Math19 完整项目，示例表现 SGENT 的有效性。
+* **SGENT\_for\_SIR 文件夹**：完成对 SIR 数据集的分析，实验结果保存在此文件夹中。
 
-- **Data Folder**: Contains the necessary data files for conducting experiments.
-- **Code Folder**: Includes the source code implementing the GBSR strategy.
-- **Example Folder**:  The effectiveness of our approach is demonstrated through an example program containing a Lang1 program with critical information and another example program that includes a complete Math19 program.
-- **GBSR_for_SIR Folder**: We also conducted further analysis on the SIR dataset, and the experimental results are presented in this folder.
+这些资源旨在方便参考与实验可复现性。开发者可克隆本仓库，获取使用 SGENT 进行故障定位实验所需的代码与数据。
 
-These resources are made available to facilitate reference and reproducibility of the experimental process. Developers can clone the repository to access the code and data required for utilizing GBSR in fault localization experiments.
+## 数据文件说明
+项目中包含一个名为 “Data” 的文件夹，存放进行实验所需的关键数据文件。这些数据在支持故障定位策略的多个方面起到了关键作用。开发者可在仓库中使用这些文件开展实验、分析结果，进而加深对 SGENT 在故障定位优化方面的理解。
 
+### 1. Defects4J 数据集
+在实验过程中，我们选取了五个 Defects4J 子项目：
 
+| 项目     | 名称             | 测试数   | 代码行数 | 版本数 | 故障数 |
+| ------ | -------------- | ----- | ---- | --- | --- |
+| Lang   | commons-lang   | 2,245 | 22K  | 58  | 83  |
+| Chart  | jfreechart     | 2,205 | 96K  | 24  | 37  |
+| Cli    | commons-cli    | 361   | 4K   | 36  | 45  |
+| JxPath | commons-jxpath | 401   | 21K  | 22  | 36  |
+| Math   | commons-math   | 3,602 | 85K  | 103 | 137 |
 
-## Data Files
-The project includes a dedicated "Data" folder, housing essential files required for experimentation. These data files are instrumental in supporting various aspects of fault localization strategies. Developers can find and utilize these files within the repository to conduct experiments, analyze results, and enhance their understanding of GBSR's effectiveness in refining fault localization.
-   1. **Defects4J**
+五个项目合计共 243 个版本和 338 个缺陷。
 
-In our experimental process, we focused on five Defects4J subjects:
+### 2. 数据采集省略
 
-| Subject   | Name            | #Test | #Loc | #Version | #Faults |
-|-----------|-----------------|-------|------|----------|---------|
-| Lang      | commons-lang    | 2,245 | 22K  | 58       | 83      |
-| Chart     | jfreechart      | 2,205 | 96K  | 24       | 37      |
-| Cli       | commons-cli     | 361   | 4K   | 36       | 45      |
-| JxPath    | commons-jxpath  | 401   | 21K  | 22       | 36      |
-| Math      | commons-math    | 3,602 | 85K  | 103      | 137     |
+由于本项目重点在于 SGENT 方法本身，因此省略了数据采集过程，直接提供了预处理后的数据，以便更高效地聚焦方法本身与实验流程。
 
-These subjects collectively encompass a total of 243 versions and 338 faults.
+### 3. 数据格式
 
-2. **Data Acquisition Omission**
+实验数据以 JSON 格式提供，具有结构化且便于处理的特点。
 
-Due to the core focus of this project lying in the GBSR methodology, the data acquisition process has been omitted. Instead, pre-analyzed data is directly shared for experimentation purposes. This approach streamlines the project's emphasis on the GBSR method and provides readily available data for experimentation.
-
-3. **Data Format**
-
-The experiment data is provided in JSON format, offering a structured and versatile representation for ease of use. 
-
-As an illustration, here is an example structure of the JSON data for the subject "Lang" with the version "Lang1":
+以下为项目“Lang”中版本“Lang1”的 JSON 示例结构：
 
 ```json
 {   
@@ -60,7 +57,7 @@ As an illustration, here is an example structure of the JSON data for the subjec
     "edge14": [[4, 0], [8, 0], [11, 0], [12, 0], [13, 0], [14, 0], [15, 0], [16, 0], [19, 0], [21, 0], [22, 0], [24, 0], [29, 0], [31, 0], [32, 0], [34, 0], [35, 0], [36, 0], [39, 0], [40, 0], [41, 0], [42, 0]], 
 }
 ```
-**This detailed explanation provides a clearer understanding of each key's role in the dataset.**
+
 | Key          | Description                                       |
 |--------------|---------------------------------------------------|
 | 'proj'       | Project version                                   |
@@ -79,103 +76,86 @@ As an illustration, here is an example structure of the JSON data for the subjec
 | 'edge13'     | Tuple: (mutation, correct test case)             |
 | 'edge14'     | Tuple: (mutation, incorrect test case)           |
 
-The provided code has an additional feature where the data abstraction and function call relationships between functions are extracted and stored in a `{dataset}_M2M.txt` file. This file captures the mapping of functions and their corresponding datasets.
+* 数据文件为 JSON 格式，结构化强。
+* 包括項目版本，正确/错误测试用例、方法、代码行、语法树 AST 节点、边结构、变异位置和类型等。
 
-Please note that due to the large size of the files, only the data for Lang, Chart, and Cli has been uploaded. If you require the data for JxPath and Math, kindly contact the author directly to request the files separately.
+在实现中还会生成 `{dataset}_M2M.txt`，用于存储函数间的抽象和调用关系。
 
-Thank you for your understanding.
+**注意：** 由于文件过大，仅上传了 Lang、Chart、Cli 三个项目数据，JxPath 和 Math 需请联系作者单独获取。
 
-## Code Files
+---
 
-## Runtime Environment and Dependencies
+## 代码文件说明
 
-To run the code for this project, ensure you have the following runtime environment:
+### 运行环境与依赖
 
-1. **Python Version:** Python 3.X
-
-Install the required dependencies using the following commands:
+* Python 3.X
+* 依赖安装
 
 ```bash
 pip install numpy
 pip install json
 pip install pickle
-# Add any other necessary dependencies
 ```
-Please note that the provided list includes common dependencies like numpy, json, and pickle. Adjust the dependencies based on specific details within your code. If there are additional dependencies or specific versions required, update the installation commands accordingly.
 
-2. **Code Flow Explanation**
+### 代码流程
 
- **1\)** **Build Overall Matrix (Kill Matrix)**
+1. 构建 kill 矩阵
+2. 抽象图结构
+3. 可疑度计算 (MBFL 和 MBFL\_G)
+4. 保存和组织结果
 
- Make sure to incorporate the logic for extracting necessary information from your pre-organized data file and then proceed with the construction of the kill matrix.
+---
 
- **2\)** **Abstract Graph Structure for Weight Calculation**
+### 各 Python 脚本
 
-Implement code to create an abstract graph structure for calculating weight matrices. This involves extracting the internal structure relationships from the data file and abstracting them into a graph structure. Nodes represent program entities, edges represent relationships, and the abstraction is then represented in matrix form.
+#### (1) Get\_Killed\_Matrix.py
 
- **3\)** **Suspiciousness Calculation Process**
- 
- Comparison between Traditional MBFL and MBFL_G (Traditional MBFL with GBSR) Integrated with GBSR
-
- **4\)** **Save and Organize Results**
-
-
-3. **Code File Explanation**
-
-The provided code is designed to conduct experiments using the **Lang** as an example. If you wish to use a different experimental dataset, minor adjustments to the code may be necessary.
-
-Follow the sequence below to execute each Python program in the provided method. Ensure that you run the programs in the specified order for a successful execution of the entire workflow.
-
-<!-- ```bash
-python Get_Killed_Matrix.py
-python Get_Graph_Matrix.py
-python PageRank_Value_Calculation.py
-python Suspiciousness_Calculation.py
-python Evaluate_Result.py
-``` -->
-
-## (1) Get_Killed_Matrix.py
-
-Execute the script to obtain the killed matrix, capturing information related to the presence or absence of specific elements. This script generates data from the mutation analysis process, facilitating a more straightforward calculation of suspiciousness using the traditional MBFL method. The results of the execution are saved in the '***Killed_Matrix***' folder. Due to the large size of the graph structure, the data is saved in the pkl file format.
+执行该脚本以生成 kill 矩阵，该矩阵记录特定元素是否存在（被测试用例杀死）。该脚本基于变异分析过程生成数据，从而简化了使用传统 MBFL 方法计算可疑度的过程。执行结果将保存在 Killed_Matrix 文件夹中。由于图结构较大，数据以 .pkl 格式进行保存。
 
 ```bash
 python Get_Killed_Matrix.py
 ```
-## (2) Get_Graph_Matrix.py
 
-Run the script to obtain the graph matrix, abstracting information such as function call relationships and internal structure relationships within program entities into a graph structure. The script considers two scenarios: passing and failing tests. The results of the execution are saved in the '***F_FIN_matrix***' and '***P_FIN_matrix***' folders. Due to the large size of the graph structure, the data is saved in the pkl file format.
+#### (2) Get\_Graph\_Matrix.py
+
+运行该脚本以生成图矩阵，将函数调用关系、程序实体内部结构等信息抽象为图结构。脚本分别考虑通过测试和失败测试两种情形。执行结果保存在 F_FIN_matrix 和 P_FIN_matrix 文件夹中。由于图结构较大，数据以 .pkl 格式保存。
+
+构建程序图（通过/失败测试），结果保存在 `F_FIN_matrix/` 和 `P_FIN_matrix/`
 
 ```bash
 python Get_Graph_Matrix.py
 ```
 
-## (3) PageRank_Value_Calculation.py
+#### (3) PageRank\_Value\_Calculation.py
 
-Run the script to calculate PageRank values for the matrices corresponding to the two types of tests. The calculated PageRank values will be saved in the PR_Value folder.
+运行该脚本以计算对应两类测试的图矩阵的 PageRank 值。计算得到的 PageRank 值将保存在 PR_Value 文件夹中
+
+计算 PageRank 值，结果保存在 `PR_Value/`
 
 ```bash
 python PageRank_Value_Calculation.py
 ```
-For the Lang1, the first line provides the count of different categories of program entities, representing the number of methods（3）, statements（19）, mutants（45）, passed tests（31）, and failed tests（1）, respectively. The second line corresponds to the PageRank values of different program entities.
+
+以 Lang1 为例，第一页的第一行表示不同类型程序实体的数量，依次为方法（3 个）、语句（19 个）、变异体（45 个）、通过测试（31 个）和失败测试（1 个）。第二行则对应各程序实体的 PageRank 值
 
 ```
 3 19 45 31 1
-0.13711014507154012 0.2706443768564598 0.24295525446812183 ……
+0.13711 0.27064 0.24295 ...
 ```
 
-## (4) Suspiciousness_Calculation.py
+#### (4) Suspiciousness\_Calculation.py
 
-Run the script to calculate suspiciousness scores using both traditional MBFL and MBFL integrated with the GBSR strategy. The results are stored in the SUS folder, where each file represents the calculation method (traditional MBFL or MBFL_G integrated with GBSR) for a specific project. Each file contains an array representing the suspiciousness values for different methods in the project.
+运行该脚本以使用传统 MBFL 和集成 SGENT 策略的 MBFL 方法计算可疑度分数。结果保存在 SUS 文件夹中，其中每个文件对应一个项目的某种计算方法（传统 MBFL 或集成 SGENT 的 MBFL_G）。每个文件中包含一个数组，表示该项目中不同方法的可疑度分值。
 
 ```bash
 python Suspiciousness_Calculation.py
 ```
-## (5) Evaluate_Result.py
 
-Run the script to perform the final evaluation using the Top metric. The evaluation results are saved in the Result folder as an Excel. The spreadsheet contains three sheets, each representing a comparison between traditional MBFL and MBFL integrated with the GBSR strategy using the TOP-1, TOP-3, and TOP-5 metrics. This provides a clear demonstration of the effectiveness of our method.
+#### (5) Evaluate\_Result.py
+
+运行该脚本，使用 Top 指标执行最终评估。评估结果以 Excel 文件形式保存在 Result 文件夹中。该表格包含三个工作表，分别展示传统 MBFL 与集成 SGENT 策略的 MBFL 方法在 TOP-1、TOP-3 和 TOP-5 指标下的对比效果，从而清晰地体现我们方法的有效性。
 
 ```bash
 python Evaluate_Result.py
 ```
-
-
