@@ -8,7 +8,7 @@ SGENT is a strategy for detecting equivalent mutants in mutation testing. This m
 
 This open-source project provides the following engineering and experimental resources:
 
-* *mujava-idea folder**: The core tool used to generate mutants for this study. It contains 10 https://commons.apache.org projects.
+* **mujava-idea folder**: The core tool used to generate mutants for this study. It contains 10 https://commons.apache.org projects.
 * **soot-analysis folder**: Implements the graph structures required by SGENT, such as AST/CFG/DFG。
 * **MutEquiv folder**：The core module of this paper, containing the source code implementing the SGENT strategy。
 * **testset folder**: Contains the source code for generating mutants. The related projects need to be manually downloaded from https://commons.apache.org.
