@@ -139,35 +139,36 @@ pip install torch_geometric
 
 1. ProgramGraphDataset.py
 
-Constructs graph datasets for downstream tasks. Graphs are stored in .jsonl format due to their large size.
+    Constructs graph datasets for downstream tasks. Graphs are stored in .jsonl format due to their large size.
 
 
 2. GraphEmbedding.py
 
-Generates graph embeddings using CodeBERT. Pre-processed .jsonl embeddings are loaded to save time.
+    Generates graph embeddings using CodeBERT. Pre-processed .jsonl embeddings are loaded to save time.
 
 
 3. GATEncoder.py
 
-Implements a two-layer attention-based graph neural network.
+    Implements a two-layer attention-based graph neural network.
+
 
 4. GraphComparator.py
 
-Core module implementing cross-graph attention for equivalence detection.
+    Core module implementing cross-graph attention for equivalence detection.
 
 
 5. train.py
 
-Trains the SGENT model with options to load and save models.
+    Trains the SGENT model with options to load and save models.
 
-```bash
-python train.py
-```
+	```bash
+	python train.py
+	```
 
 6. predict.py
 
-Executes prediction and outputs equivalence results
+    Executes prediction and outputs equivalence results
 
-```bash
-python predict.py
-```
+	```bash
+	python predict.py
+	```
