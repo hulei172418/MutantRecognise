@@ -163,7 +163,7 @@ python train.py
 
 6. predict.py
 
-该脚本是预测模块，可以直接执行。
+该脚本是预测模块，可以直接执行然后输出预测结果。
 
 ```bash
 python predict.py
