@@ -30,6 +30,7 @@ def collate_fn(batch):
             batch_graphs[graph_type]['original'].append(graphs['original'].to(device))
             batch_graphs[graph_type]['mutant'].append(graphs['mutant'].to(device))
             batch_graphs[graph_type]['alignment'].append(graphs['alignment'].to(device))
+            batch_graphs[graph_type]['mask'].append(graphs['mask'].to(device))
             batch_graphs[graph_type]['source'].append(graphs['source'])
         labels.append(item['label'].to(device))
 
@@ -40,6 +41,7 @@ def collate_fn(batch):
                 'original': Batch.from_data_list(batch_graphs[graph_type]['original']),
                 'mutant': Batch.from_data_list(batch_graphs[graph_type]['mutant']),
                 'alignment': torch.stack(batch_graphs[graph_type]['alignment']),
+                'mask': torch.stack(batch_graphs[graph_type]['mask']),
                 'source': batch_graphs[graph_type]['source']
             }
 
@@ -94,16 +96,16 @@ def save_model():
 
 # Start training process
 device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
-batch_size = 256
+batch_size = 16
 train_loader = DataLoader(train_set, batch_size=batch_size, shuffle=True, collate_fn=collate_fn)
 val_loader = DataLoader(val_set, batch_size=batch_size, collate_fn=collate_fn)
 
 model = GraphComparator().to(device)
-optimizer = optim.Adam(model.parameters(), lr=5e-4, weight_decay=1e-3)
+optimizer = optim.Adam(model.parameters(), lr=5e-3, weight_decay=1e-3)
 pos_weight = torch.tensor([sum(p[-1] for p in mutant_pairs) / len(mutant_pairs)]).to(device)
 criterion = torch.nn.BCEWithLogitsLoss(pos_weight=pos_weight)
 
-for epoch in range(50):
+for epoch in range(10):
     train_loss = train(model, train_loader, criterion, optimizer, device)
     metrics = evaluate(model, val_loader, device)
     print(f"Epoch {epoch}: Loss={train_loss:.4f}, Acc={metrics['accuracy']:.4f}, Precision={metrics['precision']:.4f}, Recall={metrics['recall']:.4f}, F1={metrics['f1']:.4f}")

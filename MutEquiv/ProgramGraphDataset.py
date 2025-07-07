@@ -57,10 +57,10 @@ class ProgramGraphDataset(Dataset):
     def _build_pyg_data(self, nodes, edges):
         x = torch.stack([torch.tensor(n['features']) for n in nodes])
         node_id_map = {n['id']: i for i, n in enumerate(nodes)}
-        edge_type_dim = 3
+        edge_type_dim = 3  # AST / CFG / DFG
 
         edge_index = []
-        edge_type_counts = torch.zeros((x.size(0), edge_type_dim))
+        edge_type_counts = torch.zeros((x.size(0), edge_type_dim))  # 初始化累加矩阵
 
         for e in edges:
             src = e['source']
@@ -69,14 +69,13 @@ class ProgramGraphDataset(Dataset):
                 s_id, t_id = node_id_map[src], node_id_map[tgt]
                 edge_index.append([s_id, t_id])
                 etype = EDGE_TYPE_MAP.get(e.get('edge_type', 'UNKNOWN'), 0)
-                edge_type_counts[s_id, etype] += 1
+                edge_type_counts[s_id, etype] += 1  # 将边类型聚合到源节点上
 
         edge_index = torch.tensor(edge_index).t().contiguous() if edge_index else torch.empty((2, 0), dtype=torch.long)
         x_augmented = torch.cat([x, edge_type_counts], dim=1)
 
         code_list = [n['code'] for n in nodes]
         return Data(x=x_augmented, edge_index=edge_index), code_list
-
 
     def _fixed_size_align(self, orig_entry, mutant_entry):
         orig_graph = orig_entry['data']
@@ -99,20 +98,28 @@ class ProgramGraphDataset(Dataset):
             is_mutant = False
 
         alignment = []
+        mask = []
         for code in base_codes[:self.fixed_size]:
             try:
                 idx = target_codes.index(code)
-                alignment.append(idx if idx < target_num_nodes else -1)
+                valid = idx < target_num_nodes
+                alignment.append(idx if valid else -1)
+                mask.append(1 if valid else 0)
             except ValueError:
                 alignment.append(-1)
+                mask.append(0)
 
         if len(alignment) < self.fixed_size:
-            alignment += [-1] * (self.fixed_size - len(alignment))
+            pad_len = self.fixed_size - len(alignment)
+            alignment += [-1] * pad_len
+            mask += [0] * pad_len
 
-        source = ['mutant' if is_mutant else 'orig'] * len(alignment)
+        source = ['mutant' if is_mutant else 'orig'] * self.fixed_size
+
         return {
             'original': orig_graph,
             'mutant': mutant_graph,
             'alignment': torch.tensor(alignment, dtype=torch.long),
+            'mask': torch.tensor(mask, dtype=torch.float),
             'source': source
         }
