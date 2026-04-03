@@ -134,7 +134,7 @@ This project uses only **method-level mutation operators**, with 19 operators in
 
 ### 2.5 Full Dataset URL
 
-- <https://github.io/SGENT/data/>
+- <https://doi.org/10.5281/zenodo.19402225>
 
 ## 3. Graph Data Generation with soot-analysis
 
